@@ -2,10 +2,12 @@
 // build your `/api/projects` router here
 const express = require("express");
 const Resource = require("./model");
+const { validateResource } = require('./middleware');
+
 
 const router = express.Router();
 
-router.post("/", (req, res, next) => {
+router.post("/", validateResource, (req, res, next) => {
   const resource = req.body;
 
   Resource.add(resource)

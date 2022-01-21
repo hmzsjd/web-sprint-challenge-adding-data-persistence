@@ -1,10 +1,10 @@
-
 const express = require("express");
 const Task = require("./model");
+const { checkProjectID } = require('./middleware');
 
 const router = express.Router();
 
-router.post("/", (req, res, next) => {
+router.post("/", checkProjectID, (req, res, next) => {
   const task = req.body;
 
   Task.add(task)
