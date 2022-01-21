@@ -53,11 +53,10 @@ exports.up = async function (knex) {
  * @param { import("knex").Knex } knex
  * @returns { Promise<void> }
  */
- exports.down = async function (knex) {
-    await knex.schema
-      .dropTableIfExists("project_resources")
-      .dropTableIfExists("tasks")
-      .dropTableIfExists("resources")
-      .dropTableIfExists("projects")
-  };
-  
+exports.down = async function (knex) {
+  await knex.schema
+    .dropTableIfExists("project_resources")
+    .dropTableIfExists("tasks")
+    .dropTableIfExists("resources")
+    .dropTableIfExists("projects");
+};

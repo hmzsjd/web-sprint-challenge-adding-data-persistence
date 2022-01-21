@@ -1,6 +1,6 @@
 const express = require("express");
 const Task = require("./model");
-const { checkProjectID } = require('./middleware');
+const { checkProjectID } = require("./middleware");
 
 const router = express.Router();
 
@@ -9,9 +9,7 @@ router.post("/", checkProjectID, (req, res, next) => {
 
   Task.add(task)
     .then((newTask) => {
-
       res.status(201).json(newTask);
-
     })
     .catch(next);
 });

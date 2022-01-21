@@ -1,9 +1,6 @@
-// build your `/api/resources` router here
-// build your `/api/projects` router here
 const express = require("express");
 const Resource = require("./model");
-const { validateResource } = require('./middleware');
-
+const { validateResource } = require("./middleware");
 
 const router = express.Router();
 
@@ -12,9 +9,7 @@ router.post("/", validateResource, (req, res, next) => {
 
   Resource.add(resource)
     .then((newResource) => {
-
       res.status(201).json(newResource);
-
     })
     .catch(next);
 });

@@ -1,7 +1,7 @@
 const db = require("../../data/dbConfig");
 
 const checkProjectID = (req, res, next) => {
-  const project =  db("projects")
+  const project = db("projects")
     .where("project_id", req.body.project_id)
     .first();
   if (project) {
